@@ -9,6 +9,22 @@ void PMW3901Uart::begin() {
   _fps = 0;
 }
 
+void PMW3901Uart::reset() {
+  _dx = 0;
+  _dy = 0;
+  _surfaceQuality = 0;
+  _fps = 0;
+  lastUpdateTime = millis();
+  updateIndex = 0;
+}
+
+void PMW3901Uart::resetPosition() {
+  static int32_t absX = 0;
+  static int32_t absY = 0;
+
+  absX = 0;
+  absY = 0;
+}
 bool PMW3901Uart::decodePacket() {
   // Validate packet structure
   if (packet[0] != HEADER || packet[1] != 0x04 || packet[8] != FOOTER) {
