@@ -25,6 +25,7 @@ void PMW3901Uart::resetPosition() {
   absX = 0;
   absY = 0;
 }
+
 bool PMW3901Uart::decodePacket() {
   // Validate packet structure
   if (packet[0] != HEADER || packet[1] != 0x04 || packet[8] != FOOTER) {
@@ -72,13 +73,13 @@ bool PMW3901Uart::update() {
   return false;
 }
 
-void PMW3901Uart::calculateAbsolutePosition(int16_t &x, int16_t &y) {
+void PMW3901Uart::calculateAbsolutePosition(int32_t &x, int32_t &y) {
   static int32_t absX = 0;
   static int32_t absY = 0;
 
   absX += _dx;
   absY += _dy;
 
-  x = static_cast<int16_t>(absX);
-  y = static_cast<int16_t>(absY);
+  x = static_cast<int32_t>(absX);
+  y = static_cast<int32_t>(absY);
 }
