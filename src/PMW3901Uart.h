@@ -20,7 +20,6 @@ public:
   int16_t getDy() const { return _dy; }
   uint8_t getFps() const { return _fps; }
   uint8_t getSurfaceQuality() const { return _surfaceQuality; }
-
 private:
   SoftwareSerial OFSerial;
   bool decodePacket();
