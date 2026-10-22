@@ -7,7 +7,7 @@ PMW3901Uart flow(SENSOR_RX_PIN);
 void setup() {
   Serial.begin(115200);
   delay(3000);
-  Serial.println(F("MARS-Engineers optical flow test " __FILE__ " from " __DATE__ "\r\n"));
+  Serial.println(F("PMW3901 uart optical flow test " __FILE__ " from " __DATE__ "\r\n"));
 
   flow.begin();
 }
