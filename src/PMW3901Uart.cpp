@@ -74,8 +74,6 @@ bool PMW3901Uart::update() {
 }
 
 void PMW3901Uart::calculateAbsolutePosition(int32_t &x, int32_t &y) {
-  static int32_t absX = 0;
-  static int32_t absY = 0;
 
   absX += _dx;
   absY += _dy;

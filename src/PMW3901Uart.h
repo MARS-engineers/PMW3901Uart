@@ -20,15 +20,20 @@ public:
   void calculateAbsolutePosition(int32_t &x, int32_t &y);
   int16_t getDx() const { return _dx; }
   int16_t getDy() const { return _dy; }
+  int32_t getAbsoluteX() const { return absX; }
+  int32_t getAbsoluteY() const { return absY; }
   uint8_t getFps() const { return _fps; }
   uint8_t getSurfaceQuality() const { return _surfaceQuality; }
+
 private:
   SoftwareSerial OFSerial;
   bool decodePacket();
-  int16_t _dx = 0;                   // X movement
-  int16_t _dy = 0;                   // Y movement
-  uint8_t _surfaceQuality = 0;      // Surface quality indicator
-  uint8_t _fps = 0;                 // Frames per second
+  int16_t _dx = 0;             // X movement
+  int16_t _dy = 0;             // Y movement
+  uint8_t _surfaceQuality = 0; // Surface quality indicator
+  uint8_t _fps = 0;            // Frames per second
+  int32_t absX = 0;
+  int32_t absY = 0;
   unsigned long lastUpdateTime = 0; // Last update time for FPS calculation
   uint8_t packet[PACKET_SIZE];
   uint8_t updateIndex = 0; // Index for packet assembly
