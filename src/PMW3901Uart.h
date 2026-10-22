@@ -15,16 +15,16 @@ public:
   PMW3901Uart(pin_size_t rxPin);
   void begin();
   bool update();
-  int16_t getX() const { return _x; }
-  int16_t getY() const { return _y; }
+  int16_t getDx() const { return _dx; }
+  int16_t getDy() const { return _dy; }
   uint8_t getFps() const { return _fps; }
   uint8_t getSurfaceQuality() const { return _surfaceQuality; }
 
 private:
   SoftwareSerial OFSerial;
   bool decodePacket();
-  int16_t _x = 0;                   // X movement
-  int16_t _y = 0;                   // Y movement
+  int16_t _dx = 0;                   // X movement
+  int16_t _dy = 0;                   // Y movement
   uint8_t _surfaceQuality = 0;      // Surface quality indicator
   uint8_t _fps = 0;                 // Frames per second
   unsigned long lastUpdateTime = 0; // Last update time for FPS calculation

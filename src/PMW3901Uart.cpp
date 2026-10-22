@@ -22,8 +22,8 @@ bool PMW3901Uart::decodePacket() {
   }
 
   // Combine high and low bytes
-  _x = (int16_t)((packet[2] << 8) | packet[3]);
-  _y = (int16_t)((packet[4] << 8) | packet[5]);
+  _dx = (int16_t)((packet[2] << 8) | packet[3]);
+  _dy = (int16_t)((packet[4] << 8) | packet[5]);
   _surfaceQuality = packet[7];
 
   _fps = 1000 / (millis() - lastUpdateTime);

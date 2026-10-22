@@ -13,10 +13,10 @@ void setup() {
 }
 void loop() {
   if (flow.update()) {
-    int16_t x = flow.getX();
-    int16_t y = flow.getY();
-    if (!(x == 0 && y == 0)) {
-      String m = "X:" + (String)x + ",\tY:" + (String)y + ",\tQ:" + (String)flow.getSurfaceQuality() + ",\tFPS:" + (String)flow.getFps();
+    int16_t dx = flow.getDx();
+    int16_t dy = flow.getDy();
+    if (!(dx == 0 && dy == 0)) {
+      String m = "dX:" + (String)dx + ",\tdY:" + (String)dy + ",\tQ:" + (String)flow.getSurfaceQuality() + ",\tFPS:" + (String)flow.getFps();
       Serial.println(m);
     }
   }
