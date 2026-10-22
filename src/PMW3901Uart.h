@@ -15,6 +15,7 @@ public:
   PMW3901Uart(pin_size_t rxPin);
   void begin();
   bool update();
+  void calculateAbsolutePosition(int16_t &x, int16_t &y);
   int16_t getDx() const { return _dx; }
   int16_t getDy() const { return _dy; }
   uint8_t getFps() const { return _fps; }

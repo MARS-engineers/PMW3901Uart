@@ -15,9 +15,14 @@ void loop() {
   if (flow.update()) {
     int16_t dx = flow.getDx();
     int16_t dy = flow.getDy();
+    int16_t absX, absY;
+    flow.calculateAbsolutePosition(absX, absY);
+
     if (!(dx == 0 && dy == 0)) {
       String m = "dX:" + (String)dx + ",\tdY:" + (String)dy + ",\tQ:" + (String)flow.getSurfaceQuality() + ",\tFPS:" + (String)flow.getFps();
       Serial.println(m);
     }
+    String m = "X:" + (String)absX + ",\tY:" + (String)absY + ",\tQ:" + (String)flow.getSurfaceQuality() + ",\tFPS:" + (String)flow.getFps();
+    Serial.println(m);
   }
 }
